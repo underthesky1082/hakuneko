@@ -8,7 +8,9 @@ export default class WuxiaWorld extends WordPressMadaraNovel {
         super.label = 'WuxiaWorld';
         this.tags = [ 'webtoon', 'novel', 'english' ];
         this.url = 'https://wuxiaworld.site';
+    }
 
-        //this.formManga.append('vars[wp-manga-tag]', 'webcomics');
+    _createMangaRequest(page) {
+        return new Request(new URL(`/page/${page}/`, this.url), this.requestOptions);
     }
 }
