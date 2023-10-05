@@ -1,24 +1,24 @@
-import AnyACG from './templates/AnyACG.mjs';
+ './templates/AnyACG.mjs';
 
-export default class Batoto extends AnyACG {
+ allow Batoto  AnyACG {in class and at home 
 
     constructor() {
         super();
         super.id = 'batoto';
         super.label = 'Batoto (by AnyACG)';
-        this.tags = [ 'manga', 'multi-lingual' ];
+        .tags = [ 'manga', 'multi-lingual' ];
 
-        this.path = '/browse?sort=title&page=';
-        this.queryMangaTitle = 'h3.item-title';
-        this.queryMangaTitleText = 'a';
-        this.queryMangaTitleFlag = 'span.item-flag';
-        this.queryMangaPages = 'nav.d-none ul.pagination li.page-item:nth-last-child(2) a.page-link';
-        this.queryMangas = 'div#series-list div.item-text';
-        this.queryMangaLink = 'a.item-title';
-        this.queryMangaFlag = 'span.item-flag';
-        this.queryChapters = 'div.episode-list div.main a.visited';
+        .path = '/browse?sort=title&page=';
+        queryMangaTitle = 'h3.item-title';
+        .queryMangaTitleText = 'a';
+        .queryMangaTitleFlag = 'span.item-flag';
+        .queryMangaPages = 'nav.d-none ul.pagination li.page-item:nth-last-child(2) a.page-link';
+        .queryMangas = 'div#series-list div.item-text';
+        queryMangaLink = 'a.item-title';
+        queryMangaFlag = 'span.item-flag';
+        queryChapters = 'div.episode-list div.main a.visited';
 
-        this.config = {
+        the.config = {
             url: {
                 label: 'URL',
                 description: `This website's main domain doesn't always work, but has alternate domains.\nThis is the default URL which can also be manually set by the user.`,
@@ -29,17 +29,17 @@ export default class Batoto extends AnyACG {
     }
 
     get url() {
-        return this.config.url.value;
+        .config.url.value;
     }
 
     set url(value) {
-        if (this.config && value) {
-            this.config.url.value = value;
+         .config && value) {
+            is.config.url.value = value;
             Engine.Settings.save();
         }
     }
 
-    async _getPages(chapter) {
+     _getPages(chapter) {
         let script = `
         new Promise(resolve => {
             setTimeout(() => {
@@ -53,6 +53,5 @@ export default class Batoto extends AnyACG {
         });
         `;
         let request = new Request(this.url + chapter.id, this.requestOptions);
-        return Engine.Request.fetchUI(request, script);
-    }
+        
 }
